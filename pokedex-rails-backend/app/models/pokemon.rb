@@ -41,4 +41,19 @@ class Pokemon < ApplicationRecord
         'steel'
     ].sort.freeze
 
+    has_many :items,
+        primary_id: :id,
+        foreign_key: :pokemon_id,
+        className: :Item,
+        dependent: :destroy
+    
+    has_many :poke_moves,
+        primary_key: :id,
+        foreign_key: :pokemon_id,
+        className: :PokeMove,
+        dependent: :destroy
+
+    has_many :moves,
+        through: :poke_moves,
+        source: :moves
 end
