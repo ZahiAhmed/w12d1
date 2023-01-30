@@ -14,7 +14,7 @@ class Move < ApplicationRecord
     has_many :poke_moves,
         primary_key: :id,
         foreign_key: :move_id,
-        className: :PokeMove,
+        class_name: :PokeMove,
         dependent: :destroy
 
     has_many :pokemon,

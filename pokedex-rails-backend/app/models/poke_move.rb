@@ -14,10 +14,10 @@ class PokeMove < ApplicationRecord
     belongs_to :pokemon,
         primary_key: :id,
         foreign_key: :pokemon_id,
-        className: :Pokemon
+        class_name: :Pokemon
 
     belongs_to :moves,
         primary_key: :id,
         foreign_key: :move_id,
-        className: :Move
+        class_name: :Move
 end
