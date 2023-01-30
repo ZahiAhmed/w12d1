@@ -14,7 +14,7 @@
 #  updated_at :datetime         not null
 #
 class Pokemon < ApplicationRecord
-    validates :captured, inclusion: [true, false]
+    validates :captured, inclusion: {in: [true, false], message: "Must be true or false"}
     validates :number, :name, :attack, :defense, :poke_type, :image_url, presence: true
     validates :name, length: {minimum: 3, maximum: 255}
     validates :name, :number, uniqueness: {message: "'%{value}' is already in use"}
